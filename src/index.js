@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import App from './App.js';
 import reportWebVitals from './reportWebVitals';
+import '@fontsource/poppins'; // default 400
+import '@fontsource/poppins/600.css'; // optional
+import '@fontsource/poppins/700.css'; // optional
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
