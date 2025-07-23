@@ -3,16 +3,15 @@
 import React, { useState, useMemo } from "react";
 import { ExternalLink, Github, Figma } from "lucide-react"; // 👈 pakai ikon dari lucide
 import ProjectCard from "../components/common/PorjectCard";
-
+import KoalaERS from "../assets/images/web1.png";
 // Data ini bisa datang dari CMS, API, atau file JSON lokal di masa depan.
 // Saya tambahkan lebih banyak data untuk menunjukkan fungsionalitas filter.
 const allProjects = [
   {
     category: "Web Development",
-    title: "Situs E-commerce Modern",
-    count: "React, Node.js",
-    imageUrl:
-      "https://images.unsplash.com/photo-1522199755839-a2bacb67c546?q=80&w=872",
+    title: "Media Pembelajaran KoalaERS",
+    count: "React, Flask-API",
+    imageUrl: KoalaERS,
   },
   {
     category: "UI/UX Design",

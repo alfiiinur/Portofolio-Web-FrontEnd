@@ -1,68 +1,54 @@
 // src/pages/Home.jsx
 import React from "react";
 import ProjectCard from "../components/common/PorjectCard";
-import { Github, Linkedin, Twitter, Mail, FileText } from "lucide-react";
+import {
+  Github,
+  Linkedin,
+  Twitter,
+  Mail,
+  FileText,
+  BookOpen,
+} from "lucide-react";
 import CarouselSlider from "../components/common/CarouselSlider";
 import Footer from "../components/layout/Footer";
+import profileUIUX from "../assets/images/profile_uiux.jpg";
+import profileMobile from "../assets/images/profile_mobile.jpg";
+import profileDesign from "../assets/images/profile_desain.jpg";
+import profileAll from "../assets/images/profile_all.jpg";
 
 // Anda bisa mengganti data ini dengan data dari API atau data Anda sendiri
 const portfolioData = [
   {
     category: "UI/UX Design",
-    title: "Aplikasi Mobile Banking",
-    count: "15+",
-    imageUrl:
-      "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=870",
+    title: "UI/UX Design Mobile and Web Apps",
+    count: "10",
+    imageUrl: profileUIUX,
   },
   {
     category: "Web Development",
-    title: "Situs E-commerce",
-    count: "8",
+    title: "Landing Page and Profile Website",
+    count: "5",
     imageUrl:
       "https://images.unsplash.com/photo-1522199755839-a2bacb67c546?q=80&w=872",
   },
   {
-    category: "Branding",
-    title: "Identitas Visual Startup",
-    count: "21",
-    imageUrl:
-      "https://images.unsplash.com/photo-1559028006-44a36b17c769?q=80&w=774",
+    category: "Mobile Development",
+    title: "Mobile Apps UI with Kotlin",
+    count: "5",
+    imageUrl: profileMobile,
   },
   {
-    category: "Photography",
-    title: "Potret & Lanskap",
-    count: "100+",
-    imageUrl:
-      "https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?q=80&w=774",
-  },
-  {
-    category: "3D Modeling",
-    title: "Aset Game & Arsitektur",
+    category: "Design Graphic",
+    title: "Design Grafis & Ilustrasi",
     count: "34",
-    imageUrl:
-      "https://images.unsplash.com/photo-1593369457935-199233a54b38?q=80&w=870",
-  },
-  {
-    category: "3D Modeling",
-    title: "Aset Game & Arsitektur",
-    count: "34",
-    imageUrl:
-      "https://images.unsplash.com/photo-1593369457935-199233a54b38?q=80&w=870",
+    imageUrl: profileDesign,
   },
   {
     category: "All Projects",
     title: "Lihat Semua Karya Saya",
     count: "250+",
-    imageUrl:
-      "https://images.unsplash.com/photo-1531297484001-80022131c5a9?q=80&w=820",
+    imageUrl: profileAll,
     wide: true, // Kartu ini akan lebih lebar
-  },
-  {
-    category: "3D Modeling",
-    title: "Aset Game & Arsitektur",
-    count: "34",
-    imageUrl:
-      "https://images.unsplash.com/photo-1593369457935-199233a54b38?q=80&w=870",
   },
 ];
 
@@ -79,7 +65,7 @@ const Home = () => {
         </h2>
         <div className="flex justify-center flex-wrap gap-4 text-sm text-light-text dark:text-dark-text mt-6">
           <a
-            href="https://github.com"
+            href="https://github.com/alfiiinur"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -88,7 +74,7 @@ const Home = () => {
             </span>
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/alfinur/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -96,23 +82,19 @@ const Home = () => {
               <Linkedin size={16} /> LinkedIn
             </span>
           </a>
-          <a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span className="inline-flex items-center gap-2 bg-green-300 text-white text-sm font-semibold px-3 py-1 rounded-md shadow-sm dark:bg-green-200 dark:text-gray-900">
-              <Twitter size={16} /> Twitter
-            </span>
-          </a>
           <a href="/blog">
             <span className="inline-flex items-center gap-2 bg-purple-300 text-white text-sm font-semibold px-3 py-1 rounded-md shadow-sm dark:bg-purple-200 dark:text-gray-900">
               <FileText size={16} /> Blog
             </span>
           </a>
-          <a href="mailto:you@example.com">
+          <a href="mailto:alfinurdanialin900@gmail.com">
             <span className="inline-flex items-center gap-2 bg-yellow-300 text-white text-sm font-semibold px-3 py-1 rounded-md shadow-sm dark:bg-yellow-400 dark:text-gray-900">
               <Mail size={16} /> Email
+            </span>
+          </a>
+          <a href="https://dribbble.com/alfiii2">
+            <span className="inline-flex items-center gap-2 bg-green-300 text-white text-sm font-semibold px-3 py-1 rounded-md shadow-sm dark:bg-green-400 dark:text-gray-900">
+              <BookOpen size={16} /> Dribble
             </span>
           </a>
         </div>

@@ -8,18 +8,25 @@ import {
   FileText,
   BookOpen,
   CalendarDays,
+  ArrowUpRight,
+  X,
 } from "lucide-react";
+import { useState } from "react";
+// import img from asset
+import imgProfile from "../assets/images/PROFILE.jpg"; // Pastikan path ini sesuai dengan struktur folder Anda
+import pdfBNSP from "../assets/certificates/bnsp.pdf";
 
 const About = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <section className="bg-light-background dark:bg-dark-background text-light-text dark:text-dark-text min-h-screen py-16 px-6 md:px-10 lg:px-16 transition-colors duration-300">
       <div className="max-w-4xl mx-auto space-y-8">
         {/* Profile Header */}
         <div className="flex flex-col items-start sm:items-center text-left sm:text-center space-y-4">
           <img
-            src="https://avatars.githubusercontent.com/u/000000?v=4"
+            src={imgProfile}
             alt="profile"
-            className="w-16 h-16 rounded-full"
+            className="w-40 h-70 rounded-sm"
           />
           <div>
             <h1 className="text-2xl sm:text-3xl font-semibold">
@@ -42,7 +49,7 @@ const About = () => {
             <Mail size={16} /> Email
           </a>
           <a
-            href="https://s.id/LinkedinAlfiNu"
+            href="https://www.linkedin.com/in/alfinur/"
             className="hover:underline flex items-center gap-1"
             target="_blank"
           >
@@ -56,7 +63,7 @@ const About = () => {
             <Github size={16} /> GitHub
           </a>
           <a
-            href="https://dribbble.com/alfiii"
+            href="https://dribbble.com/alfiii2"
             className="hover:underline flex items-center gap-1"
             target="_blank"
           >
@@ -68,13 +75,6 @@ const About = () => {
             target="_blank"
           >
             <FileText size={16} /> Portfolio CV
-          </a>
-          <a
-            href="https://alfiiinur.github.io/prAlfinur"
-            className="hover:underline flex items-center gap-1"
-            target="_blank"
-          >
-            <CalendarDays size={16} /> Website
           </a>
         </div>
 
@@ -121,7 +121,7 @@ const About = () => {
             <div>
               <strong>
                 Web Developer Intern – Dinas Komunikasi & Informatika Sidoarjo
-                (2024 - Present)
+                (2024 - 2025)
               </strong>
               <p className="text-light-text/70 dark:text-dark-text/70">
                 Improved usability, maintained database migrations, and
@@ -182,12 +182,44 @@ const About = () => {
           <h3 className="font-semibold text-sm mb-4 text-light-text/70 dark:text-dark-text/70">
             Certifications.
           </h3>
-          <ul className="list-disc list-inside space-y-1 text-sm">
-            <li>BNSP – Young Computer Network Technician</li>
-            <li>idCamp 2023 – Kotlin Programming</li>
-            <li>MySkill – UI/UX Research & Design</li>
+          <ul className="list-disc list-inside space-y-1 text-sm relative">
+            <li>
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="text-left w-full flex justify-between items-center hover:underline"
+              >
+                BNSP – Young Computer Network Technician
+                <ArrowUpRight size={16} />
+              </button>
+            </li>
+            <li className="flex justify-between items-center">
+              idCamp 2023 – Kotlin Programming
+              <ArrowUpRight size={16} />
+            </li>
+            <li className="flex justify-between items-center">
+              MySkill – UI/UX Research & Design
+              <ArrowUpRight size={16} />
+            </li>
           </ul>
         </div>
+        {isModalOpen && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+            <div className="bg-white dark:bg-dark-background p-4 rounded-lg max-w-3xl w-full relative">
+              <button
+                className="absolute top-2 right-2 text-gray-700 dark:text-white hover:text-red-500"
+                onClick={() => setIsModalOpen(false)}
+              >
+                <X size={20} />
+              </button>
+              <h2 className="text-lg font-semibold mb-4">Sertifikat BNSP</h2>
+              <iframe
+                src={pdfBNSP}
+                title="Sertifikat BNSP"
+                className="w-full h-[500px] border"
+              />
+            </div>
+          </div>
+        )}
 
         {/* Education */}
         <div>
@@ -195,8 +227,8 @@ const About = () => {
             Education.
           </h3>
           <p className="text-sm">
-            Informatics Engineering – Trunojoyo Madura University (2021 -
-            Present)
+            Informatics Engineering – Trunojoyo Madura University (2021 - 2025)
+            | IPK (3.67)
           </p>
         </div>
       </div>

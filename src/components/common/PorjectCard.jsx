@@ -1,6 +1,7 @@
 // src/components/common/ProjectCard.jsx
 
 import React from "react";
+import { ArrowUpRight } from "lucide-react"; // Ikon untuk tombol
 
 const ProjectCard = ({ category, title, count, imageUrl, wide = false }) => {
   // Gunakan placeholder jika imageUrl tidak disediakan
@@ -38,13 +39,23 @@ const ProjectCard = ({ category, title, count, imageUrl, wide = false }) => {
           </span>
         </div>
       </div>
-      <div className="p-5">
-        <h3 className="text-xl font-bold text-light-text dark:text-dark-text">
-          {title}
-        </h3>
-        <p className="text-sm text-light-text/70 dark:text-dark-text/70">
-          {count} items
-        </p>
+      <div className="relative">
+        <div className="p-5">
+          <h3 className="text-xl font-bold text-light-text dark:text-dark-text">
+            {title}
+          </h3>
+          <p className="text-sm text-light-text/70 dark:text-dark-text/70">
+            {count} items
+          </p>
+        </div>
+
+        <a
+          href="#"
+          className="absolute bottom-4 right-4 flex items-center justify-center h-12 w-12 rounded-full bg-black/20 backdrop-blur-sm transition-all hover:bg-black/30"
+          aria-label={`Lihat detail untuk ${title}`}
+        >
+          <ArrowUpRight size={20} className="text-black" />
+        </a>
       </div>
     </div>
   );
