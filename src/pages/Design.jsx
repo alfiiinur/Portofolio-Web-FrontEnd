@@ -1,11 +1,9 @@
 // src/pages/Design.jsx
 
-import React from "react";
-import { ArrowUpRight } from "lucide-react"; // Ikon untuk tombol
+import React, { useState } from "react";
+import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react"; // Ikon untuk tombol
+import designWorks from "../components/common/dataDesign"; // Impor data desain
 
-// --- Komponen Kartu Baru untuk Halaman Desain ---
-// Untuk struktur proyek yang lebih baik, Anda bisa memindahkan komponen ini ke filenya sendiri,
-// misalnya `src/components/common/DesignCard.jsx`
 const DesignCard = ({ title, category, imageUrl }) => {
   return (
     // 'group' memungkinkan kita untuk memicu style pada elemen anak saat parent di-hover
@@ -44,47 +42,15 @@ const DesignCard = ({ title, category, imageUrl }) => {
   );
 };
 
-// Contoh data untuk galeri desain. Anda bisa menggantinya dengan karya Anda.
-const designWorks = [
-  {
-    category: "UI/UX Design",
-    title: "UI Kit untuk Aplikasi Finansial",
-    imageUrl:
-      "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=870",
-  },
-  {
-    category: "Branding",
-    title: 'Logo & Brand Guideline untuk "Kopi Senja"',
-    imageUrl:
-      "https://images.unsplash.com/photo-1611140191382-597b61807438?q=80&w=774",
-  },
-  {
-    category: "Illustration",
-    title: "Set Ikon Kustom untuk Website",
-    imageUrl:
-      "https://images.unsplash.com/photo-1609279769222-c51a8383e63a?q=80&w=870",
-  },
-  {
-    category: "UI/UX Design",
-    title: "Wireframe & Prototyping Aplikasi Travel",
-    imageUrl:
-      "https://images.unsplash.com/photo-1516542949625-5a2394a8a425?q=80&w=774",
-  },
-  {
-    category: "Graphic Design",
-    title: "Desain Kemasan Produk Skincare",
-    imageUrl:
-      "https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=735",
-  },
-  {
-    category: "Illustration",
-    title: "Karakter Maskot untuk Brand Edukasi",
-    imageUrl:
-      "https://images.unsplash.com/photo-1629812456636-a8a43f1ce173?q=80&w=870",
-  },
-];
-
 const Design = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6; // Jumlah item per halaman
+
+  const totalPages = Math.ceil(designWorks.length / itemsPerPage);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = designWorks.slice(indexOfFirstItem, indexOfLastItem);
+
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="text-center mb-12">
@@ -99,7 +65,7 @@ const Design = () => {
 
       {/* Grid Desain menggunakan komponen kartu yang baru */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {designWorks.map((design, index) => (
+        {currentItems.map((design, index) => (
           <DesignCard
             key={index}
             category={design.category}
@@ -107,6 +73,47 @@ const Design = () => {
             imageUrl={design.imageUrl}
           />
         ))}
+      </div>
+      <div className="mt-10 flex justify-center items-center space-x-2">
+        <button
+          onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+          disabled={currentPage === 1}
+          className={`px-4 py-2 rounded-md border ${
+            currentPage === 1
+              ? "bg-gray-200 text-gray-500 cursor-not-allowed"
+              : "bg-white dark:bg-dark-background hover:bg-gray-100 dark:hover:bg-dark-accent"
+          }`}
+        >
+          <ChevronLeft size={20} />
+        </button>
+
+        {[...Array(totalPages)].map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentPage(index + 1)}
+            className={`px-4 py-2 rounded-md border ${
+              currentPage === index + 1
+                ? "bg-green-400 text-white"
+                : "bg-white dark:bg-dark-background hover:bg-gray-100 dark:hover:bg-dark-accent"
+            }`}
+          >
+            {index + 1}
+          </button>
+        ))}
+
+        <button
+          onClick={() =>
+            setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+          }
+          disabled={currentPage === totalPages}
+          className={`px-4 py-2 rounded-md border ${
+            currentPage === totalPages
+              ? "bg-gray-200 text-gray-500 cursor-not-allowed"
+              : "bg-white dark:bg-dark-background hover:bg-gray-100 dark:hover:bg-dark-accent"
+          }`}
+        >
+          <ChevronRight size={20} />
+        </button>
       </div>
     </div>
   );

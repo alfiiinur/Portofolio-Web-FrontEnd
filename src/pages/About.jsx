@@ -13,11 +13,21 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 // import img from asset
-import imgProfile from "../assets/images/PROFILE.jpg"; // Pastikan path ini sesuai dengan struktur folder Anda
+import imgProfile from "../assets/images/PROFILE.jpg";
 import pdfBNSP from "../assets/certificates/bnsp.pdf";
+import sertifikatFluter from "../assets/certificates/ALFINURDANIALIN-SERTIFIKAT.pdf";
+import seritifkatAndroid from "../assets/certificates/dicoding andorid.pdf";
+import sertfikatPemateri from "../assets/certificates/Pemateri.jpg";
+import serfikatCenim from "../assets/certificates/SERTIFIKAT CENIM.png";
+import sertifikatHKI from "../assets/certificates/SuratCiptaan_EC002025077829_HKI.pdf";
+import sertifikatML from "../assets/certificates/dicoding ml.pdf";
 
 const About = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedCertificate, setSelectedCertificate] = useState({
+    title: "",
+    src: "",
+  });
   return (
     <section className="bg-light-background dark:bg-dark-background text-light-text dark:text-dark-text min-h-screen py-16 px-6 md:px-10 lg:px-16 transition-colors duration-300">
       <div className="max-w-4xl mx-auto space-y-8">
@@ -120,6 +130,15 @@ const About = () => {
           <div className="space-y-4 text-sm">
             <div>
               <strong>
+                Web Developer Intern – Research Assistant (2024 - Now)
+              </strong>
+              <p className="text-light-text/70 dark:text-dark-text/70">
+                Improved usability, create a recommendation system learning
+                media using React JS and Fast API
+              </p>
+            </div>
+            <div>
+              <strong>
                 Web Developer Intern – Dinas Komunikasi & Informatika Sidoarjo
                 (2024 - 2025)
               </strong>
@@ -182,26 +201,108 @@ const About = () => {
           <h3 className="font-semibold text-sm mb-4 text-light-text/70 dark:text-dark-text/70">
             Certifications.
           </h3>
-          <ul className="list-disc list-inside space-y-1 text-sm relative">
+          <ul className="list-disc pl-4 space-y-1 text-sm relative">
             <li>
               <button
-                onClick={() => setIsModalOpen(true)}
+                onClick={() =>
+                  setSelectedCertificate({
+                    title: "BNSP – Young Computer Network Technician",
+                    src: pdfBNSP,
+                  }) || setIsModalOpen(true)
+                }
                 className="text-left w-full flex justify-between items-center hover:underline"
               >
                 BNSP – Young Computer Network Technician
                 <ArrowUpRight size={16} />
               </button>
             </li>
-            <li className="flex justify-between items-center">
-              idCamp 2023 – Kotlin Programming
-              <ArrowUpRight size={16} />
+            <li>
+              <button
+                onClick={() =>
+                  setSelectedCertificate({
+                    title: "Flutter Developer – Dicoding",
+                    src: sertifikatFluter,
+                  }) || setIsModalOpen(true)
+                }
+                className="text-left w-full flex justify-between items-center hover:underline"
+              >
+                Flutter Developer – Dicoding
+                <ArrowUpRight size={16} />
+              </button>
             </li>
-            <li className="flex justify-between items-center">
-              MySkill – UI/UX Research & Design
-              <ArrowUpRight size={16} />
+            <li>
+              <button
+                onClick={() =>
+                  setSelectedCertificate({
+                    title: "Android Developer – Dicoding",
+                    src: seritifkatAndroid,
+                  }) || setIsModalOpen(true)
+                }
+                className="text-left w-full flex justify-between items-center hover:underline"
+              >
+                Android Developer – Dicoding
+                <ArrowUpRight size={16} />
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() =>
+                  setSelectedCertificate({
+                    title: "Machine Learning – Dicoding",
+                    src: sertifikatML,
+                  }) || setIsModalOpen(true)
+                }
+                className="text-left w-full flex justify-between items-center hover:underline"
+              >
+                Machine Learning – Dicoding
+                <ArrowUpRight size={16} />
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() =>
+                  setSelectedCertificate({
+                    title: "Sertifikat Pemateri",
+                    src: sertfikatPemateri,
+                  }) || setIsModalOpen(true)
+                }
+                className="text-left w-full flex justify-between items-center hover:underline"
+              >
+                Sertifikat Pemateri
+                <ArrowUpRight size={16} />
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() =>
+                  setSelectedCertificate({
+                    title: "Sertifikat CENIM",
+                    src: serfikatCenim,
+                  }) || setIsModalOpen(true)
+                }
+                className="text-left w-full flex justify-between items-center hover:underline"
+              >
+                Sertifikat CENIM
+                <ArrowUpRight size={16} />
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() =>
+                  setSelectedCertificate({
+                    title: "Surat Ciptaan – HKI",
+                    src: sertifikatHKI,
+                  }) || setIsModalOpen(true)
+                }
+                className="text-left w-full flex justify-between items-center hover:underline"
+              >
+                Surat Ciptaan – HKI
+                <ArrowUpRight size={16} />
+              </button>
             </li>
           </ul>
         </div>
+
         {isModalOpen && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
             <div className="bg-white dark:bg-dark-background p-4 rounded-lg max-w-3xl w-full relative">
@@ -211,12 +312,23 @@ const About = () => {
               >
                 <X size={20} />
               </button>
-              <h2 className="text-lg font-semibold mb-4">Sertifikat BNSP</h2>
-              <iframe
-                src={pdfBNSP}
-                title="Sertifikat BNSP"
-                className="w-full h-[500px] border"
-              />
+              <h2 className="text-lg font-semibold mb-4">
+                {selectedCertificate.title}
+              </h2>
+              {selectedCertificate.src.endsWith(".jpg") ||
+              selectedCertificate.src.endsWith(".png") ? (
+                <img
+                  src={selectedCertificate.src}
+                  alt={selectedCertificate.title}
+                  className="w-full h-auto border"
+                />
+              ) : (
+                <iframe
+                  src={selectedCertificate.src}
+                  title={selectedCertificate.title}
+                  className="w-full h-[500px] border"
+                />
+              )}
             </div>
           </div>
         )}

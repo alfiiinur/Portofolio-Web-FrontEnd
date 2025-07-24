@@ -6,6 +6,7 @@ import About from "./pages/About";
 import Project from "./pages/Project";
 import Design from "./pages/Design";
 
+
 function App() {
   return (
     <Router>
@@ -18,6 +19,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/project" element={<Project />} />
           <Route path="/design" element={<Design />} />
+
         </Routes>
       </main>
     </Router>

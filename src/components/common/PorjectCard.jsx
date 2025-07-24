@@ -51,10 +51,10 @@ const ProjectCard = ({ category, title, count, imageUrl, wide = false }) => {
 
         <a
           href="#"
-          className="absolute bottom-4 right-4 flex items-center justify-center h-12 w-12 rounded-full bg-black/20 backdrop-blur-sm transition-all hover:bg-black/30"
+          className="absolute bottom-4 right-4 flex items-center justify-center h-12 w-12 rounded-full bg-black/20 backdrop-blur-sm transition-all hover:bg-black/30 dark:bg-white/20  dark:hover:bg-white/30"
           aria-label={`Lihat detail untuk ${title}`}
         >
-          <ArrowUpRight size={20} className="text-black" />
+          <ArrowUpRight size={20} className="text-black dark:text-white " />
         </a>
       </div>
     </div>
