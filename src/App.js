@@ -5,6 +5,8 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Project from "./pages/Project";
 import Design from "./pages/Design";
+import DetailPageArtikel from "./components/common/DetailPageArtikel";
+import Blog from "./pages/Blog";
 
 
 function App() {
@@ -16,10 +18,12 @@ function App() {
         {/* Padding-top untuk ruang di bawah Navbar */}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
           <Route path="/project" element={<Project />} />
           <Route path="/design" element={<Design />} />
-
+          <Route path="/about" element={<About />} />
+          <Route path="/blog" element={<Blog />} />
+          {/* Tambahkan rute lain sesuai kebutuhan */}
+        <Route path="project/:id" element={<DetailPageArtikel />} />
         </Routes>
       </main>
     </Router>

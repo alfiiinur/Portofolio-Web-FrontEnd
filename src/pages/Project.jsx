@@ -4,65 +4,7 @@ import React, { useState, useMemo } from "react";
 import { ExternalLink, Github, Figma } from "lucide-react"; // 👈 pakai ikon dari lucide
 import ProjectCard from "../components/common/PorjectCard";
 import KoalaERS from "../assets/images/web1.png";
-// Data ini bisa datang dari CMS, API, atau file JSON lokal di masa depan.
-// Saya tambahkan lebih banyak data untuk menunjukkan fungsionalitas filter.
-const allProjects = [
-  {
-    category: "Web Development",
-    title: "Media Pembelajaran KoalaERS",
-    count: "React, Flask-API",
-    imageUrl: KoalaERS,
-  },
-  {
-    category: "UI/UX Design",
-    title: "Desain Aplikasi Mobile Banking",
-    count: "Figma, Prototyping",
-    imageUrl:
-      "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=870",
-  },
-  {
-    category: "Web Development",
-    title: "Landing Page Perusahaan SaaS",
-    count: "Next.js, Tailwind CSS",
-    imageUrl:
-      "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=870",
-  },
-  {
-    category: "Branding",
-    title: "Identitas Visual untuk Startup Kopi",
-    count: "Logo, Packaging",
-    imageUrl:
-      "https://images.unsplash.com/photo-1559028006-44a36b17c769?q=80&w=774",
-  },
-  {
-    category: "UI/UX Design",
-    title: "Redesain Dashboard Admin",
-    count: "Analisis UX, Wireframing",
-    imageUrl:
-      "https://images.unsplash.com/photo-1586953208448-b95a79798f07?q=80&w=870",
-  },
-  {
-    category: "Photography",
-    title: "Sesi Foto Produk Fashion",
-    count: "Studio, Editing",
-    imageUrl:
-      "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=870",
-  },
-  {
-    category: "Web Development",
-    title: "Blog Pribadi dengan CMS",
-    count: "Gatsby, Contentful",
-    imageUrl:
-      "https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=870",
-  },
-  {
-    category: "Branding",
-    title: "Rebranding Restoran Lokal",
-    count: "Menu, Logo, Interior",
-    imageUrl:
-      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=774",
-  },
-];
+import { allProjects } from "../components/common/DataPageArtikel/dataPageArtikel";
 
 // Mendapatkan kategori unik dari semua proyek
 const categories = ["All", ...new Set(allProjects.map((p) => p.category))];
@@ -111,11 +53,13 @@ const Project = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredProjects.map((project, index) => (
           <ProjectCard
+            id={project.id} // Menggunakan index sebagai ID untuk contoh ini
             key={index}
             category={project.category}
             title={project.title}
-            count={project.count} // Di sini 'count' kita gunakan untuk menampilkan teknologi/deskripsi singkat
+            tools={project.tools} // Di sini 'count' kita gunakan untuk menampilkan teknologi/deskripsi singkat
             imageUrl={project.imageUrl}
+            wide={index === 0} // Misalnya, kita bisa membuat proyek pertama lebih lebar
           />
         ))}
       </div>

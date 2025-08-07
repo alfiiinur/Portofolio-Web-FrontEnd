@@ -3,7 +3,14 @@
 import React from "react";
 import { ArrowUpRight } from "lucide-react"; // Ikon untuk tombol
 
-const ProjectCard = ({ category, title, count, imageUrl, wide = false }) => {
+const ProjectCard = ({
+  id,
+  category,
+  title,
+  tools,
+  imageUrl,
+  wide = false,
+}) => {
   // Gunakan placeholder jika imageUrl tidak disediakan
   const imageSource =
     imageUrl || `https://placehold.co/600x400/e2e8f0/e2e8f0?text=`;
@@ -45,12 +52,12 @@ const ProjectCard = ({ category, title, count, imageUrl, wide = false }) => {
             {title}
           </h3>
           <p className="text-sm text-light-text/70 dark:text-dark-text/70">
-            {count} items
+            {tools}
           </p>
         </div>
 
         <a
-          href="#"
+          href={`/project/${id}`}
           className="absolute bottom-4 right-4 flex items-center justify-center h-12 w-12 rounded-full bg-black/20 backdrop-blur-sm transition-all hover:bg-black/30 dark:bg-white/20  dark:hover:bg-white/30"
           aria-label={`Lihat detail untuk ${title}`}
         >
