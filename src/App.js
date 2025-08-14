@@ -7,6 +7,9 @@ import Project from "./pages/Project";
 import Design from "./pages/Design";
 import DetailPageArtikel from "./components/common/DetailPageArtikel";
 import Blog from "./pages/Blog";
+import ComingSoon from './pages/404'
+import DetailPageBlogs from "./components/common/DetailPageBlogs";
+import Portofolio from "./pages/Portofolio";
 
 
 function App() {
@@ -22,8 +25,16 @@ function App() {
           <Route path="/design" element={<Design />} />
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/portofolio" element={<Portofolio/>} />
+          
+
           {/* Tambahkan rute lain sesuai kebutuhan */}
         <Route path="project/:id" element={<DetailPageArtikel />} />
+        <Route path="blog/:slug" element={<DetailPageBlogs />} />
+
+        {/* biar tidak cari yang lain */}
+        <Route path="*" element={<ComingSoon />} />
+
         </Routes>
       </main>
     </Router>

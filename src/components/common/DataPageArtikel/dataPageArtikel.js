@@ -22,13 +22,34 @@ export const allProjects = [
       category: 'UI/UX Design',
       title: 'Desain Aplikasi Mobile Banking',
       imageUrl: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=1200',
+      imgClient: 'https://images.unsplash.com/photo-1556740714-a8395b3bf30f?q=80&w=870',
       client: 'FinSecure Bank',
       year: '2024',
       tools: 'Figma, Protopie, Maze',
       description: 'Merancang ulang aplikasi mobile banking dengan fokus pada kemudahan penggunaan, keamanan, dan aksesibilitas untuk semua kalangan pengguna.',
       content: '<p>Konten detail untuk proyek mobile banking akan ditampilkan di sini.</p>'
     },
-    // ...tambahkan semua proyek lainnya di sini dengan 'id' unik
+    {
+      id:'media-pembelajaran-koalaers',
+      category: 'Web Development',
+      title: 'Media Pembelajaran KoalaERS',
+      imageUrl: 'https://images.unsplash.com/photo-1556740714-a8395b3bf30f?q=80&w=1200',
+      imgClient: 'https://images.unsplash.com/photo-1556740714-a8395b3bf30f?q=80&w=870',
+      client: 'Trunojoyo University',
+      year: '2025',
+      tools: 'React, Fast-API, Tailwind CSS',
+      description: 'Sebuah platform pembelajaran daring yang dirancang untuk meningkatkan pengalaman belajar mahasiswa dengan fitur interaktif dan akses ke materi pembelajaran yang luas.',
+      content: 
+      `
+        <p>Proyek ini bertujuan untuk menciptakan platform pembelajaran yang mudah diakses oleh mahasiswa Trunojoyo University. Dengan menggunakan React untuk frontend dan Fast-API untuk backend, kami membangun sistem yang responsif dan cepat.</p>
+        <h3 class="text-2xl font-bold mt-8 mb-4">Tantangan Utama</h3>
+        <p>Tantangan terbesar adalah mengintegrasikan berbagai sumber materi pembelajaran dan memastikan bahwa platform dapat diakses dengan mudah oleh semua mahasiswa, termasuk mereka yang memiliki keterbatasan akses internet.</p>
+        <img src="https://images.unsplash.com/photo-1556740714-a8395b3bf30f?q=80&w=870" class="rounded-lg my-6" alt="Learning Platform"/>
+        <h3 class="text-2xl font-bold mt-8 mb-4">Solusi & Hasil</h3>
+        <p>Kami mengimplementasikan desain responsif yang memastikan aksesibilitas di berbagai perangkat. Dengan fitur interaktif seperti kuis dan forum diskusi, platform ini meningkatkan keterlibatan mahasiswa. Hasilnya, tingkat partisipasi dalam pembelajaran daring meningkat sebesar 40% dalam enam bulan pertama.</p>
+
+      `
+    }
   ];
 
 

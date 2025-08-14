@@ -60,10 +60,18 @@ const DetailPageArtikel = () => {
         <aside className="lg:col-span-4">
           <div className="sticky top-24 p-6 rounded-2xl border bg-light-card/80 dark:bg-dark-card/80 border-light-border dark:border-dark-border backdrop-blur-xl">
             <h3 className="text-xl font-bold mb-4">Detail Proyek</h3>
+
+            <div className="flex items-center gap-2 mb-4 text-light-text/90 dark:text-dark-text/90">
+              <strong>Klien:</strong>
+              <img
+                src={project.imgClient}
+                alt={project.client}
+                className="w-6 h-6 object-contain rounded"
+              />
+              <span>{project.client}</span>
+            </div>
+
             <ul className="space-y-3 text-light-text/90 dark:text-dark-text/90">
-              <li>
-                <strong>Klien:</strong> {project.client}
-              </li>
               <li>
                 <strong>Tahun:</strong> {project.year}
               </li>
@@ -71,6 +79,7 @@ const DetailPageArtikel = () => {
                 <strong>Tools:</strong> {project.tools}
               </li>
             </ul>
+
             <a
               href="#"
               className="mt-6 w-full inline-block text-center px-6 py-3 rounded-lg font-semibold text-white bg-light-primary hover:bg-opacity-90 dark:bg-dark-primary dark:hover:bg-opacity-90 transition-all duration-300"

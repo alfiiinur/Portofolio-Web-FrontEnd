@@ -80,7 +80,7 @@ const About = () => {
             <BookOpen size={16} /> Dribbble
           </a>
           <a
-            href="https://s.id/CV_Portofolio_AlfINur"
+            href="https://drive.google.com/drive/folders/1K172vNgaK3LziIkgJPFxaRHI3LTjm02w?usp=drive_link"
             className="hover:underline flex items-center gap-1"
             target="_blank"
           >
